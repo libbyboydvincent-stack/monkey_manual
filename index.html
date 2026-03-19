@@ -87,6 +87,7 @@
   }
 
   .info-box p { font-size: 0.84rem; color: #4a2d80; line-height: 1.55; font-weight: 600; }
+  .info-box p + p { margin-top: 6px; }
 
   .progress-bar { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
 
@@ -195,6 +196,35 @@
     line-height: 1.5; margin-bottom: 10px;
   }
 
+  /* suggestions box */
+  .suggestions-box {
+    background: #fffbe8; border: 2px solid var(--banana);
+    border-radius: 14px; padding: 14px 18px; margin: 0 0 16px;
+  }
+
+  .suggestions-box h4 {
+    font-family: 'Fredoka One', cursive; color: var(--amber);
+    font-size: 0.95rem; margin-bottom: 8px;
+  }
+
+  .suggestions-box .s-line {
+    font-size: 0.87rem; color: var(--bark); font-weight: 700;
+    line-height: 1.5; margin-bottom: 4px;
+  }
+
+  .suggestions-box .s-line .s-say {
+    display: inline-block;
+    background: white; border: 1.5px solid var(--banana);
+    border-radius: 8px; padding: 3px 10px; margin-bottom: 4px;
+    font-style: italic;
+  }
+
+  .suggestions-box .s-reassess {
+    font-size: 0.8rem; color: var(--muted); font-weight: 600;
+    line-height: 1.5; margin-top: 6px; padding-top: 8px;
+    border-top: 1px dashed #e0d0a0;
+  }
+
   .t-feed { border-color: #f5c842; }
   .t-feed .th { background: #fffae8; }
   .t-feed .te { background: #f5e8b0; }
@@ -223,10 +253,14 @@
   .t-hormonal .th { background: #fdf5f9; }
   .t-hormonal .te { background: #f0d0e4; }
 
+  .t-whimsy { border-color: #f5c842; }
+  .t-whimsy .th { background: #fffae8; }
+  .t-whimsy .te { background: #fdedb0; }
+
   .diagnosis-banner {
     background: linear-gradient(135deg, var(--jungle), var(--leaf));
     color: white; border-radius: 14px; padding: 14px 20px;
-    margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 14px; display: flex; align-items: flex-start; gap: 12px;
   }
 
   .di { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
@@ -284,17 +318,18 @@
   <div class="warning-box">
     <div class="warning-icon">🚫</div>
     <div>
-      <h3>Critical Safety Notice — Read Before Proceeding</h3>
-      <p>DO NOT attempt to tease Monkey out of a bad mood. Even if it feels kind, playful teasing lands as evidence she is not being taken seriously — and that is the exact fear that is already active in her brain right now. Her nervous system hears it as confirmation, not contradiction.</p>
-      <p>Put the stick down. We are trying something different. Start below. 👇</p>
+      <h3>CRITICAL SAFETY NOTICE! Read Before Proceeding</h3>
+      <p>DANGER! Even if it feels playful, attempts to lighten the mood lands as evidence she is not being taken seriously. DANGER!</p>
     </div>
   </div>
 
   <div class="info-box">
     <div class="warning-icon" style="font-size:1.3rem">💜</div>
     <div>
-      <h3>Why Monkey's brain works like this</h3>
-      <p>Monkey has ADHD and is in perimenopause. These interact: fluctuating oestrogen affects dopamine regulation, which amplifies emotional sensitivity, brain fog, and overwhelm — sometimes unpredictably. Some bad days have no obvious cause. That is normal and not your fault. Your job is not to fix it or understand it. Your job is to be a safe harbour while it passes.</p>
+      <h3>Why is your Monkey like this?</h3>
+      <p>Fluctuating oestrogen affects dopamine regulation, which amplifies emotional sensitivity, brain fog, and overwhelm, often unpredictably.</p>
+      <p>Some bad days have no obvious cause. This is normal and not your fault or responsibility.</p>
+      <p>You cannot understand something she doesn't understand herself.</p>
     </div>
   </div>
 
@@ -302,7 +337,7 @@
   <div id="tree"></div>
 
   <div class="footer">
-    🌿 The Monkey Care Guide · Open source with love<br>
+    🌿 Your Monkey Manual · Open source with love<br>
     <span class="vtag">v2.0 — ADHD + Perimenopause Edition</span>
   </div>
 
@@ -312,8 +347,8 @@
 const nodes = {
   start: {
     label: "Step 1 — Basics First",
-    question: "Has Monkey eaten a proper meal in the last 3 hours?",
-    hint: "Not a biscuit. Not a handful of something. A meal. Check this first, every time, without exception. ADHD brains burn through fuel fast.",
+    question: "Has your Monkey eaten a proper meal in the last 3 hours?",
+    hint: "Not a biscuit. Not a handful of jelly beans. A meal combining fat, protein and complex carbohydrates. Do not ask! Look for evidence — dysregulated Monkeys often leave a trail of pots, plates or takeaway packaging.",
     options: [
       { text: "Yes, she's eaten properly", emoji: "✅", cls: "btn-y", next: "check_sleep" },
       { text: "No / not sure / probably not", emoji: "🍌", cls: "btn-n", next: "feed" }
@@ -322,7 +357,7 @@ const nodes = {
 
   check_sleep: {
     label: "Step 2 — Basics First",
-    question: "How was sleep last night?",
+    question: "How was her sleep last night?",
     hint: "Poor sleep mimics almost every other state on this tree: irritability, overwhelm, emotional reactivity. Worth ruling out before diagnosing anything else.",
     options: [
       { text: "She slept reasonably well", emoji: "✅", cls: "btn-y", next: "check_cause" },
@@ -336,8 +371,8 @@ const nodes = {
     question: "Did something seem to trigger this, or did it just descend?",
     hint: "Sometimes bad feelings have a cause. Sometimes, especially with perimenopause, they arrive without warning as a physiological event. Both are valid. The approach is different.",
     options: [
-      { text: "Something happened — she seems reactive or upset about something", emoji: "⚡", cls: "btn-y", next: "check_mood" },
-      { text: "Nothing obvious — it just arrived, she seems flat or heavy", emoji: "🌫️", cls: "btn-n", next: "hormonal" },
+      { text: "Something happened: her mother called, she broke something, plans were unexpectedly made and/or cancelled.", emoji: "⚡", cls: "btn-y", next: "check_mood" },
+      { text: "Nothing obvious, it just arrived, she seems flat or absent", emoji: "🌫️", cls: "btn-n", next: "hormonal" },
       { text: "A bit of both", emoji: "🤔", cls: "btn-m", next: "check_mood" }
     ]
   },
@@ -349,28 +384,28 @@ const nodes = {
     options: [
       { text: "Withdrawn, shut down, or very quiet", emoji: "🌧️", cls: "btn-y", next: "quiet_check" },
       { text: "Snappy, irritable, or restless", emoji: "🌪️", cls: "btn-m", next: "irritable_check" },
-      { text: "Like she feels unimportant or ignored", emoji: "💔", cls: "btn-n", next: "rsd" }
+      { text: "Depressed, unimportant or ignored", emoji: "💔", cls: "btn-n", next: "rsd" }
     ]
   },
 
   quiet_check: {
     label: "Narrowing It Down",
     question: "Has today been a lot? Big demands, many tasks, sensory noise, social effort?",
-    hint: "Monkey fills an invisible stress bucket without realising. When it overflows, she shuts down — not to punish you, but because she has nothing left.",
+    hint: "Activities your Monkey has to do (vs. chose to do) empties her invisible bucket. When it is empty, she is all out of Monkey and shuts down.",
     options: [
-      { text: "Yes — it's been a full-on day", emoji: "😮‍💨", cls: "btn-y", next: "overwhelmed" },
-      { text: "No — it's been calm, she just seems depleted", emoji: "🪫", cls: "btn-n", next: "sleep_tired" }
+      { text: "Yes, it's been a full-on day", emoji: "😮‍💨", cls: "btn-y", next: "overwhelmed" },
+      { text: "No, nothing exciting happened today", emoji: "🪫", cls: "btn-n", next: "sleep_tired" }
     ]
   },
 
   irritable_check: {
     label: "Narrowing It Down",
-    question: "What does the last few days look like in terms of variety and stimulation?",
-    hint: "Monkey's brain needs novelty to produce dopamine. Too samey = restless. Too chaotic = untethered. Both show up as irritability.",
+    question: "What does the last 2-3 days look like in terms of variety and stimulation?",
+    hint: "Your Monkey needs novelty to produce dopamine. Too samey = restless. Too chaotic = untethered. Both show up as irritability.",
     options: [
-      { text: "Too samey — lots of routine, nothing surprising", emoji: "🔁", cls: "btn-y", next: "bored_routine" },
-      { text: "Too chaotic — no anchor or structure", emoji: "🌀", cls: "btn-m", next: "bored_chaos" },
-      { text: "Life has been very sensible for a while — no whimsy", emoji: "✨", cls: "btn-n", next: "bored_whimsy" }
+      { text: "Lots of routine, nothing surprising", emoji: "🔁", cls: "btn-y", next: "bored_routine" },
+      { text: "Lots of disruptive activities or conversations", emoji: "🌀", cls: "btn-m", next: "bored_chaos" },
+      { text: "Lots of grown up activities: mortgage, pension, insurance conversations.", emoji: "✨", cls: "btn-n", next: "bored_whimsy" }
     ]
   },
 
@@ -378,57 +413,102 @@ const nodes = {
   feed: {
     type: "result",
     diagnosis: "🍌 Hungry Monkey",
-    diagnosisNote: "Hunger is the root of most Monkey problems. ADHD brains run hard and burn through glucose fast. Low blood sugar is chemically indistinguishable from emotional dysregulation. Feed her first, then reassess in 20 minutes before trying anything else.",
+    warning: "🚫 Do not ask if she is hungry! Do not ask what she wants to eat! Questions infuriate a hungry Monkey.",
+    diagnosisNote: "ADHD brains run hard and burn through glucose fast. Low blood sugar is chemically indistinguishable from emotional dysregulation. Feed her first, then reassess in 20 minutes before trying anything else.",
+    suggestions: {
+      say: "I'm making some food, come sit with me.",
+      confirmed: "If she comes and eats, confirmed — wait 20 minutes and reassess.",
+      reassess: "If she reacts with anger rather than just grumpiness, check sleep or hormonal instead."
+    },
     treatments: ["feed"]
   },
 
   sleep_tired: {
     type: "result",
     diagnosis: "😴 Sleep-Depleted Monkey",
-    diagnosisNote: "Poor sleep removes the brain's emotional shock absorbers. During perimenopause, broken sleep is common — night sweats, restlessness, hormonal surges at 3am. Everything feels harder and more hopeless than it actually is right now. This is neurological, not dramatic. She needs rest, not solutions.",
+    warning: "🚫 Do not ask if she is sleepy! Questions infuriate a sleepy Monkey.",
+    diagnosisNote: "Poor sleep removes the brain's emotional shock absorbers. During perimenopause, broken sleep is common: night sweats, restlessness, hormonal surges at 3am. Everything feels harder and more hopeless than it actually is right now. This is neurological, not dramatic. She needs rest, not solutions.",
+    suggestions: {
+      say: "You don't have to do anything right now, let's just be quiet.",
+      confirmed: "If she settles, confirmed.",
+      reassess: "If she seems agitated rather than flat, go back and try overwhelmed or RSD instead."
+    },
     treatments: ["sleep_rest", "quiet", "feed"]
   },
 
   hormonal: {
     type: "result",
     diagnosis: "🌫️ Hormonal Weather Monkey",
-    diagnosisNote: "During perimenopause, oestrogen fluctuations affect dopamine and mood directly — sometimes dramatically, without warning. This didn't come from something that happened today. It is a physiological event, like weather. It will pass. Your job is not to understand it or fix it. Your job is warmth and low stimulation until it lifts.",
+    warning: "🚫 Do not ask if she is hormonal! Questions infuriate a hormonal Monkey.",
+    diagnosisNote: "During perimenopause, oestrogen fluctuations affect dopamine and mood directly, sometimes dramatically, without warning. This didn't come from something that happened today. It is a physiological event, like weather. It will pass. Your job is not to understand it or fix it. Your job is warmth and low stimulation until it lifts.",
+    suggestions: {
+      say: "I don't need to understand it, I'm just here.",
+      confirmed: "If she exhales or leans in, confirmed.",
+      reassess: "If she starts talking about a specific thing that happened, go back to check_mood — there may be a trigger after all."
+    },
     treatments: ["hormonal_comfort", "quiet", "feed"]
   },
 
   overwhelmed: {
     type: "result",
     diagnosis: "🌊 Overwhelmed Monkey",
-    diagnosisNote: "The bucket is full. The ADHD brain has fewer filters for sensory and emotional input, and perimenopause lowers the threshold further. She is not being dramatic — she has genuinely run out of capacity. She doesn't need solutions. She needs the pressure to stop.",
+    warning: "🚫 Without the energy to self regulate, thoughts become words without filter.",
+    diagnosisNote: "The bucket is empty. The ADHD brain has fewer filters for sensory and emotional input, and perimenopause lowers the threshold further. She is not being dramatic, she has genuinely run out of the capacity she needs to emotionally regulate.",
+    suggestions: {
+      say: "That sounds like a lot. Nothing needs to happen right now.",
+      confirmed: "If she goes quiet or deflates with relief, confirmed.",
+      reassess: "If she seems more sad than depleted, consider RSD instead."
+    },
     treatments: ["quiet", "outside", "feed"]
   },
 
   rsd: {
     type: "result",
     diagnosis: "💔 Feeling Rejected or Unseen (RSD)",
-    diagnosisNote: "This is Rejection Sensitive Dysphoria — a neurological feature of ADHD where perceived rejection causes genuine pain, not just hurt feelings. The trigger may have been something entirely neutral you did. She is not being manipulative. Do NOT ask 'what did I do?' right now — interrogation makes it worse. Do NOT try to logic her out of it. Specific, genuine affirmation is the primary tool here.",
+    warning: "🚫 Do NOT ask 'what did I do?' right now — interrogation makes it worse. Do NOT try to logic her out of it. Specific, genuine affirmation is the primary tool here.",
+    diagnosisNote: "This is Rejection Sensitive Dysphoria, a neurological feature of ADHD where perceived rejection causes genuine pain, not just hurt feelings. The trigger may have been something entirely neutral you did. She is not being manipulative.",
+    suggestions: {
+      say: "I've been thinking about you today — [say the specific thing].",
+      confirmed: "If she softens slightly, confirmed.",
+      reassess: "If she stays completely flat with no reaction at all, consider hormonal instead."
+    },
     treatments: ["attention", "quiet"]
   },
 
   bored_routine: {
     type: "result",
     diagnosis: "🔁 Routine-Bored Monkey",
-    diagnosisNote: "Too much predictability starves the ADHD brain of dopamine. This is not ingratitude — it is neurochemistry. She needs something novel, sensory, or creative to reset. Movement is also effective here because it generates dopamine directly.",
-    treatments: ["craft", "outside"]
+    diagnosisNote: "Too much predictability starves the ADHD brain of dopamine. It is neurochemistry. She needs something novel, sensory, or creative to reset. Movement is also effective here because it generates dopamine directly.",
+    suggestions: {
+      say: "I've got an idea, come on.",
+      confirmed: "No explanation needed — just go. If she's curious, confirmed.",
+      reassess: "If she won't engage at all, she may be hormonal rather than bored — try that route instead."
+    },
+    treatments: ["whimsy", "craft"]
   },
 
   bored_chaos: {
     type: "result",
     diagnosis: "🌀 Unanchored Monkey",
     diagnosisNote: "Paradoxically, the ADHD brain also needs structure to function well. Too much chaos with no routine creates a low-level background panic that reads as irritability or restlessness. She needs a small anchor point and a creative outlet.",
+    suggestions: {
+      say: "Let's just do one small quiet thing together.",
+      confirmed: "If she agrees, confirmed.",
+      reassess: "If she's too agitated to settle, consider overwhelmed instead."
+    },
     treatments: ["quiet", "craft"]
   },
 
   bored_whimsy: {
     type: "result",
     diagnosis: "✨ Whimsy-Depleted Monkey",
-    diagnosisNote: "Life has been too sensible for too long. Play and novelty are not luxuries for the ADHD brain — they are the mechanism by which it generates dopamine and regulates mood. A small, surprising, joyful thing is not frivolous right now. It is the treatment.",
-    treatments: ["craft", "outside", "attention"]
+    diagnosisNote: "Life has been too sensible for too long. Play and novelty are not luxuries for the ADHD brain, they are the mechanism by which it generates dopamine and regulates mood. A small, surprising, joyful thing is not frivolous right now. It is the treatment.",
+    suggestions: {
+      say: "We've been too sensible lately. I have a plan.",
+      confirmed: "If she's curious, confirmed.",
+      reassess: "If she's too flat to be curious, consider hormonal instead."
+    },
+    treatments: ["whimsy", "outside", "attention"]
   }
 };
 
@@ -438,10 +518,10 @@ const treatments = {
     subtitle: "Priority: Do this first",
     why: "Low blood sugar in an ADHD brain is chemically indistinguishable from emotional dysregulation. This is not a metaphor. Reassess everything else in 20 minutes.",
     steps: [
-      "Offer food without making it about the mood. Just: 'Want something to eat?'",
-      "Something warm and substantial — not just a biscuit",
+      "Offer food without making it about the mood.",
+      "Something warm and substantial, not just a biscuit",
       "Sit near her while she eats if you can. Don't disappear",
-      "Do not say 'you're just hungry.' Just feed her quietly",
+      "Do not say 'you're just hungry' or tell her to eat.",
       "Wait 20 minutes and reassess before trying anything else"
     ]
   },
@@ -450,7 +530,7 @@ const treatments = {
     subtitle: "Presence without pressure",
     why: null,
     steps: [
-      "Sit near her — not across the room, not in another room. Physical proximity matters",
+      "Sit near her but not touching. Physical proximity matters",
       "No fixing, no advice, no jokes, no questions about what's wrong",
       "Companionable silence is a valid and powerful thing to offer",
       "A quiet 'I'm here' is enough. Let her lead on anything beyond that",
@@ -464,7 +544,7 @@ const treatments = {
     steps: [
       "Even 10 minutes counts. Don't wait for the right weather or right mood",
       "Trees, water, or green space is better than pavement if possible",
-      "Don't make it about exercise unless she wants that",
+      "Don't make it about exercise",
       "Let her set the pace and direction",
       "You don't need to talk much. Just walk alongside her"
     ]
@@ -476,9 +556,20 @@ const treatments = {
     steps: [
       "Suggest it lightly: 'Do you want to make something?'",
       "Don't require it to be useful, finished, or impressive",
-      "Sit with her and do your own thing alongside — don't watch her",
+      "Sit with her and do your own thing alongside. You don't need to join in.",
       "Knitting, drawing, assembling, collaging — anything tactile works",
-      "If she says no, offer again in 20 minutes. Sometimes it takes two offers"
+      "If she says no, be specific about the craft."
+    ]
+  },
+  whimsy: {
+    cls: "t-whimsy", emoji: "🎪", title: "Add Whimsy",
+    subtitle: "Surprise is the medicine",
+    why: "The ADHD brain cannot generate sufficient dopamine from predictable events. Novelty and surprise are not optional extras — they are the mechanism. Prepare these in advance so you can deploy them without hesitation.",
+    steps: [
+      "Mystery drive — get in the car and don't say where you're going",
+      "Colour hunting walk — pick a colour before you leave, photograph everything you spot in that colour",
+      "Surprise craft kit — bought in advance and kept secret until needed",
+      "A restaurant or food delivery neither of you has tried before"
     ]
   },
   attention: {
@@ -487,7 +578,7 @@ const treatments = {
     why: "When RSD is active, generic reassurance ('I love you') is less effective than specific, observed detail — the ADHD brain doesn't fully believe vague statements when dysphoria is running. Specificity is what breaks through.",
     steps: [
       "Put your phone down. Fully. Visibly.",
-      "Say something specific you have noticed or appreciate about her recently — not a category ('you're great') but a concrete detail",
+      "Say something specific you have noticed or appreciate about her recently, not a category ('you're great') but a concrete detail",
       "Do not follow it with a 'but'",
       "Do not ask what's wrong immediately after. Just let the affirmation land",
       "If she deflects or dismisses it, say it again. Mean it"
@@ -546,6 +637,26 @@ function render(nodeKey) {
     banner.className = "diagnosis-banner";
     banner.innerHTML = `<div class="di">🔍</div><div><h3>Diagnosis: ${node.diagnosis}</h3><p>${node.diagnosisNote}</p></div>`;
     tree.appendChild(banner);
+
+    if (node.warning) {
+      const wb = document.createElement("div");
+      wb.className = "warning-box";
+      wb.innerHTML = `<div class="warning-icon">🚫</div><div><h3>Watch out</h3><p>${node.warning}</p></div>`;
+      tree.appendChild(wb);
+    }
+
+    if (node.suggestions) {
+      const s = node.suggestions;
+      const sb = document.createElement("div");
+      sb.className = "suggestions-box";
+      sb.innerHTML = `
+        <h4>💬 Try saying this</h4>
+        <div class="s-line"><span class="s-say">"${s.say}"</span></div>
+        <div class="s-line">${s.confirmed}</div>
+        <div class="s-reassess">↩ If that doesn't fit: ${s.reassess}</div>
+      `;
+      tree.appendChild(sb);
+    }
 
     const lbl = document.createElement("p");
     lbl.className = "treat-label";
