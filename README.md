@@ -1,4 +1,4 @@
-# 🐒 The Monkey Care Guide
+# The Monkey Care Guide
 
 **A neurodivergent-informed interactive decision tree for partners who want to help but aren't quite sure how.**
 
@@ -48,14 +48,14 @@ The guide checks in this order:
 
 | Assessment | What it means |
 |---|---|
-| 🍌 Hungry Monkey | Low blood sugar presenting as emotional dysregulation |
-| 😴 Sleep-Depleted Monkey | Sleep debt removing emotional shock absorbers |
-| 🌫️ Hormonal Weather Monkey | Perimenopause oestrogen drop — no external cause, will pass |
-| 🌊 Overwhelmed Monkey | ADHD stress bucket full — capacity depleted |
-| 💔 Feeling Rejected or Unseen (RSD) | Rejection Sensitive Dysphoria active |
-| 🔁 Routine-Bored Monkey | Too much predictability starving dopamine |
-| 🌀 Unanchored Monkey | Too much chaos, no routine anchor |
-| ✨ Whimsy-Depleted Monkey | Novelty and play deficit — dopamine low |
+| Hungry Monkey | Low blood sugar presenting as emotional dysregulation |
+| Sleep-Depleted Monkey | Sleep debt removing emotional shock absorbers |
+| Hormonal Weather Monkey | Perimenopause oestrogen drop — no external cause, will pass |
+| Overwhelmed Monkey | ADHD stress bucket full — capacity depleted |
+| Feeling Rejected or Unseen (RSD) | Rejection Sensitive Dysphoria active |
+| Routine-Bored Monkey | Too much predictability starving dopamine |
+| Unanchored Monkey | Too much chaos, no routine anchor |
+| Whimsy-Depleted Monkey | Novelty and play deficit — dopamine low |
 
 ### Treatments
 
@@ -63,15 +63,15 @@ Each diagnosis maps to ordered treatment recommendations, each with a **"Why thi
 
 | Treatment | What it means |
 |---|---|
-|🍌 Feed | glucose restoration |
-🌿 Quiet Together Time — presence without pressure
-🌳 Take Outside — movement as direct dopamine medicine
-🎨 Creative / Craft Time — dopamine via making
-🎪 Add Whimsy — novelty and surprise as dopamine medicine; prepare in advance
-⭐ Focused, Specific Attention — RSD intervention; specificity matters more than volume
-🌙 Rest Protocol — sleep debt management
-🌸 Hormonal Weather Protocol — warmth without understanding or fixing
-💧 Give Her Space — the only treatment that asks you to leave; bring water, set a timer, ask once after an hour
+|Feed | glucose restoration |
+Quiet Together Time — presence without pressure
+Take Outside — movement as direct dopamine medicine
+Creative / Craft Time — dopamine via making
+Add Whimsy — novelty and surprise as dopamine medicine; prepare in advance
+Focused, Specific Attention — RSD intervention; specificity matters more than volume
+Rest Protocol — sleep debt management
+Hormonal Weather Protocol — warmth without understanding or fixing
+Give Her Space — the only treatment that asks you to leave; bring water, set a timer, ask once after an hour
 
 ---
 
@@ -127,4 +127,4 @@ This is a personal tool shared publicly in case it's useful to others. It is not
 
 ---
 
-*Made with love. Open source. 🌿*
+*Made with love. Open source.*
