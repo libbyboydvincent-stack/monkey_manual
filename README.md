@@ -32,6 +32,8 @@ One both more accessible for neurodivergent supporters and more useful than gene
 
 ## What's in the tree?
 
+The guide checks in this order, then routes to a result with a suggested phrase to validate the diagnosis. Each result includes a reassess CTA that routes to the next most logical point in the tree if the diagnosis doesn't fit. After three failed reassessments the tool stops trying to diagnose and routes to a final state: bring her a glass of water and leave her alone for an hour. Too many questions are part of the problem.
+
 ### Diagnostic flow
 
 The guide checks in this order:
@@ -59,13 +61,15 @@ The guide checks in this order:
 
 Each diagnosis maps to ordered treatment recommendations, each with a **"Why this works"** note explaining the neurological mechanism:
 
-- 🍌 **Feed** — glucose restoration
-- 🌿 **Quiet Together Time** — presence without pressure
-- 🌳 **Take Outside** — movement as dopamine medicine
-- 🎨 **Creative / Craft Time** — dopamine via making
-- ⭐ **Focused, Specific Attention** — RSD intervention; specificity matters
-- 🌙 **Rest Protocol** — sleep debt management
-- 🌸 **Hormonal Weather Protocol** — warmth without understanding or fixing
+🍌 Feed — glucose restoration
+🌿 Quiet Together Time — presence without pressure
+🌳 Take Outside — movement as direct dopamine medicine
+🎨 Creative / Craft Time — dopamine via making
+🎪 Add Whimsy — novelty and surprise as dopamine medicine; prepare in advance
+⭐ Focused, Specific Attention — RSD intervention; specificity matters more than volume
+🌙 Rest Protocol — sleep debt management
+🌸 Hormonal Weather Protocol — warmth without understanding or fixing
+💧 Give Her Space — the only treatment that asks you to leave; bring water, set a timer, ask once after an hour
 
 ---
 
