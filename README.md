@@ -8,11 +8,11 @@ Live demo: [your-url-here.vercel.app](https://your-url-here.vercel.app)
 
 ## What is this?
 
-This is a single-page interactive guide designed to help a partner support someone who has **ADHD and is in perimenopause** — when they're having a difficult moment and may not have the self-awareness or vocabulary to explain why.
+This is a single-page interactive guide designed to help a partner support someone who has **ADHD and is in perimenopause** when they're having a difficult moment and may not have the self-awareness or vocabulary to explain why. It's written by me, Monkey, for my autistic husband. I know he wants to help, but this mix of ambiguity and emotions are his kyrptonite.
 
-It works as a click-through diagnostic tree. The supporter answers a short series of questions about what they're observing, and the guide produces a probable diagnosis and a set of concrete, specific interventions — with explanations of *why* each one works at a neurological level, not just "be supportive."
+It works as a click-through diagnostic tree. The supporter answers a short series of questions about what they're observing, and the guide produces a probable diagnosis and a set of concrete, specific interventions with explanations of *why* each one works at a neurological level, not just "be supportive." Fewer feelings, more facts!
 
-It was built with a specific couple in mind (one partner with ADHD + perimenopause, one autistic partner who defaults to teasing and finds ambiguity stressful), but the underlying logic is grounded in publicly available research on ADHD and perimenopause, and may be useful more broadly.
+It was built with a specific couple in mind (one partner with ADHD + perimenopause, one autistic partner), but the underlying logic is grounded in publicly available research on ADHD and perimenopause, and may be useful more broadly. Maybe you're the monkey, maybe you're the mechanic.
 
 ---
 
@@ -21,11 +21,12 @@ It was built with a specific couple in mind (one partner with ADHD + perimenopau
 Supporting someone with ADHD through a low moment is hard when:
 
 - Their self-awareness isn't always great in the moment
-- You don't know if they're tired, hungry, overwhelmed, or something else
+- You don't know if it's physiological (they're tired, hungry, hormonal), or something else
 - Your instincts (teasing, logic, problem-solving) consistently backfire
-- You get stressed not knowing what to do, which makes things worse
+- You get stressed not knowing what to do, so you hide in the basement playing Vermintide 2 which makes things worse
 
-This guide turns an ambiguous emotional situation into a structured diagnostic process — which is both more accessible for neurodivergent supporters and more useful than generic advice like "just be there for her."
+This guide turns an ambiguous emotional situation into a structured diagnostic process. 
+One both more accessible for neurodivergent supporters and more useful than generic advice like "just be there for her."
 
 ---
 
@@ -101,13 +102,14 @@ This is open source. If it's useful to you as-is, use it. If you want to adapt i
 
 Both are plain objects and straightforward to edit without any coding background.
 
-If you make a version for a different neurodivergent combination (e.g. both autistic, or ADHD + depression, or any other pairing), consider sharing it.
+If you make a version for a different neurodivergent combination (e.g. both autistic, or ADHD + depression, or any other pairing), please consider sharing it.
+If you make a version that improves on this (form, function, or fun), please consider submitting an update.
 
 ---
 
 ## A note on tone
 
-This guide is deliberately light-hearted in framing. The person it was made for is referred to as "Monkey" — this is a term of endearment, not a label. The whimsy is intentional: when someone is stressed and doesn't know what to do, a guide that is warm and slightly silly is more likely to actually get used than a clinical one.
+This guide is deliberately light-hearted in framing. The person it was made for is referred to as "Monkey". that's me and this is a term of endearment, not a label. The whimsy is intentional; when someone is stressed and doesn't know what to do, a guide that is warm and slightly silly is more likely to actually get used than a clinical one. The tone and the language aren't chosen to make fun of or light of what can be difficult, confusing, painful, stressful and upsetting. The tone and and the language are used to avoid pathologising one of life's most common experiences. The Monkeys aren't sick. This is normal.
 
 The content, however, is grounded in real research. The "Why this works" sections exist specifically because one partner in this dynamic is autistic and processes things better when the logic is made explicit rather than implied.
 
