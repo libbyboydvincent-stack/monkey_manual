@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐒 The Monkey Care Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --jungle: #2d5016;
+    --leaf: #4a7c2f;
+    --lime: #8db84a;
+    --banana: #f5c842;
+    --amber: #e8952a;
+    --terra: #c4612a;
+    --cream: #fdf6e3;
+    --bark: #5c3d1e;
+    --soft: #f9f0d8;
+    --muted: #8a7055;
+    --danger: #d94f4f;
+    --danger-bg: #fff0f0;
+    --rsd: #7c4db8;
+    --rsd-bg: #f5f0ff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 10% 20%, rgba(141,184,74,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(232,149,42,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(245,200,66,0.08) 0%, transparent 70%);
+    padding: 20px 20px 48px;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; }
+
+  .header { text-align: center; padding: 32px 20px 20px; }
+
+  .monkey-emoji {
+    font-size: 72px; display: block;
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+  }
+
+  h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.6rem; color: var(--jungle);
+    letter-spacing: 1px; margin: 8px 0 4px; line-height: 1.1;
+  }
+
+  .subtitle { color: var(--muted); font-size: 1rem; font-weight: 600; }
+
+  .warning-box {
+    background: var(--danger-bg); border: 2.5px solid var(--danger);
+    border-radius: 16px; padding: 16px 20px; margin: 0 0 14px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+
+  .warning-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+
+  .warning-box h3 {
+    font-family: 'Fredoka One', cursive; color: var(--danger);
+    font-size: 1.05rem; margin-bottom: 4px;
+  }
+
+  .warning-box p { font-size: 0.87rem; color: #7a3030; line-height: 1.55; font-weight: 600; }
+  .warning-box p + p { margin-top: 6px; }
+
+  .info-box {
+    background: var(--rsd-bg); border: 2px solid var(--rsd);
+    border-radius: 14px; padding: 14px 18px; margin: 0 0 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+
+  .info-box h3 {
+    font-family: 'Fredoka One', cursive; color: var(--rsd);
+    font-size: 0.95rem; margin-bottom: 3px;
+  }
+
+  .info-box p { font-size: 0.84rem; color: #4a2d80; line-height: 1.55; font-weight: 600; }
+
+  .progress-bar { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
+
+  .progress-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #ddd; transition: all 0.3s ease;
+  }
+
+  .progress-dot.active { background: var(--amber); transform: scale(1.3); }
+  .progress-dot.done { background: var(--leaf); }
+
+  .card {
+    background: white; border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(92,61,30,0.1), 0 1px 4px rgba(92,61,30,0.08);
+    padding: 26px 28px; margin-bottom: 14px;
+    animation: slideIn 0.35s ease;
+    border: 2px solid rgba(141,184,74,0.2);
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-label {
+    font-size: 0.73rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--lime); margin-bottom: 7px;
+  }
+
+  .card h2 {
+    font-family: 'Fredoka One', cursive; font-size: 1.5rem;
+    color: var(--bark); margin-bottom: 8px; line-height: 1.25;
+  }
+
+  .hint {
+    color: var(--muted); font-size: 0.9rem; line-height: 1.6;
+    margin-bottom: 18px; font-style: italic;
+  }
+
+  .btn-group { display: flex; flex-direction: column; gap: 10px; }
+
+  .btn {
+    background: var(--soft); border: 2px solid var(--banana);
+    border-radius: 12px; padding: 14px 16px;
+    font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: 0.95rem; color: var(--bark); cursor: pointer;
+    text-align: left; transition: all 0.2s ease;
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+  }
+
+  .btn:hover {
+    background: var(--banana); border-color: var(--amber);
+    transform: translateX(4px);
+    box-shadow: 0 3px 10px rgba(232,149,42,0.25);
+  }
+
+  .btn .be { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+
+  .btn-y { border-color: var(--leaf); background: rgba(141,184,74,0.1); }
+  .btn-y:hover { background: rgba(141,184,74,0.25); border-color: var(--jungle); }
+
+  .btn-n { border-color: var(--terra); background: rgba(196,97,42,0.07); }
+  .btn-n:hover { background: rgba(196,97,42,0.18); border-color: var(--terra); }
+
+  .btn-m { border-color: #aaa; background: #f5f5f5; }
+  .btn-m:hover { background: #e8e8e8; border-color: #777; }
+
+  .treatment-card {
+    background: white; border-radius: 20px;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 24px rgba(92,61,30,0.1);
+    overflow: hidden; margin-bottom: 14px;
+    animation: slideIn 0.35s ease;
+  }
+
+  .th { padding: 15px 20px; display: flex; align-items: center; gap: 12px; }
+
+  .te {
+    font-size: 1.8rem; width: 46px; height: 46px;
+    border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+
+  .tt { font-family: 'Fredoka One', cursive; font-size: 1.15rem; color: var(--bark); }
+  .ts { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  .tb { padding: 0 20px 18px; }
+  .tb ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+  .tb li {
+    font-size: 0.88rem; color: #4a3728; font-weight: 600;
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+  }
+
+  .tb li::before { content: "→"; color: var(--amber); font-weight: 800; flex-shrink: 0; }
+
+  .why-label {
+    font-size: 0.73rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--muted); margin: 10px 0 5px;
+  }
+
+  .why-note {
+    background: rgba(141,184,74,0.1); border-left: 3px solid var(--lime);
+    border-radius: 0 8px 8px 0; padding: 8px 12px;
+    font-size: 0.82rem; color: #3a5a20; font-weight: 600;
+    line-height: 1.5; margin-bottom: 10px;
+  }
+
+  .t-feed { border-color: #f5c842; }
+  .t-feed .th { background: #fffae8; }
+  .t-feed .te { background: #f5e8b0; }
+
+  .t-outside { border-color: #8db84a; }
+  .t-outside .th { background: #f2fae8; }
+  .t-outside .te { background: #d5edba; }
+
+  .t-quiet { border-color: #7ab8d4; }
+  .t-quiet .th { background: #eef7fc; }
+  .t-quiet .te { background: #cce6f4; }
+
+  .t-craft { border-color: #e88ad4; }
+  .t-craft .th { background: #fdf0f9; }
+  .t-craft .te { background: #f5d0ed; }
+
+  .t-attention { border-color: #e8952a; }
+  .t-attention .th { background: #fff6ec; }
+  .t-attention .te { background: #fde0b6; }
+
+  .t-sleep { border-color: #8888dd; }
+  .t-sleep .th { background: #f0f0ff; }
+  .t-sleep .te { background: #d8d8f8; }
+
+  .t-hormonal { border-color: #d4a0c0; }
+  .t-hormonal .th { background: #fdf5f9; }
+  .t-hormonal .te { background: #f0d0e4; }
+
+  .diagnosis-banner {
+    background: linear-gradient(135deg, var(--jungle), var(--leaf));
+    color: white; border-radius: 14px; padding: 14px 20px;
+    margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px;
+  }
+
+  .di { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+
+  .diagnosis-banner h3 {
+    font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 4px;
+  }
+
+  .diagnosis-banner p { font-size: 0.84rem; opacity: 0.9; font-weight: 600; line-height: 1.5; }
+
+  .treat-label {
+    font-size: 0.73rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--leaf); margin-bottom: 12px;
+  }
+
+  .restart-btn {
+    display: block; width: 100%; margin-top: 24px; padding: 14px;
+    background: var(--jungle); color: white; border: none;
+    border-radius: 12px; font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem; cursor: pointer; transition: background 0.2s;
+  }
+
+  .restart-btn:hover { background: var(--leaf); }
+
+  .back-btn {
+    background: none; border: none; color: var(--muted);
+    font-family: 'Nunito', sans-serif; font-size: 0.85rem;
+    font-weight: 700; cursor: pointer; padding: 4px 0;
+    display: block; margin-top: 10px;
+  }
+
+  .back-btn:hover { color: var(--bark); }
+
+  .footer {
+    text-align: center; padding: 28px 10px 8px;
+    color: var(--muted); font-size: 0.78rem; font-weight: 600; line-height: 1.8;
+  }
+
+  .vtag {
+    display: inline-block; background: rgba(141,184,74,0.2);
+    color: var(--leaf); border-radius: 20px; padding: 2px 10px;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <span class="monkey-emoji">🐒</span>
+    <h1>The Monkey Care Guide</h1>
+    <p class="subtitle">A field manual for when Monkey seems off · v2.0</p>
+  </div>
+
+  <div class="warning-box">
+    <div class="warning-icon">🚫</div>
+    <div>
+      <h3>Critical Safety Notice — Read Before Proceeding</h3>
+      <p>DO NOT attempt to tease Monkey out of a bad mood. Even if it feels kind, playful teasing lands as evidence she is not being taken seriously — and that is the exact fear that is already active in her brain right now. Her nervous system hears it as confirmation, not contradiction.</p>
+      <p>Put the stick down. We are trying something different. Start below. 👇</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="warning-icon" style="font-size:1.3rem">💜</div>
+    <div>
+      <h3>Why Monkey's brain works like this</h3>
+      <p>Monkey has ADHD and is in perimenopause. These interact: fluctuating oestrogen affects dopamine regulation, which amplifies emotional sensitivity, brain fog, and overwhelm — sometimes unpredictably. Some bad days have no obvious cause. That is normal and not your fault. Your job is not to fix it or understand it. Your job is to be a safe harbour while it passes.</p>
+    </div>
+  </div>
+
+  <div class="progress-bar" id="progressBar"></div>
+  <div id="tree"></div>
+
+  <div class="footer">
+    🌿 The Monkey Care Guide · Open source with love<br>
+    <span class="vtag">v2.0 — ADHD + Perimenopause Edition</span>
+  </div>
+
+</div>
+
+<script>
+const nodes = {
+  start: {
+    label: "Step 1 — Basics First",
+    question: "Has Monkey eaten a proper meal in the last 3 hours?",
+    hint: "Not a biscuit. Not a handful of something. A meal. Check this first, every time, without exception. ADHD brains burn through fuel fast.",
+    options: [
+      { text: "Yes, she's eaten properly", emoji: "✅", cls: "btn-y", next: "check_sleep" },
+      { text: "No / not sure / probably not", emoji: "🍌", cls: "btn-n", next: "feed" }
+    ]
+  },
+
+  check_sleep: {
+    label: "Step 2 — Basics First",
+    question: "How was sleep last night?",
+    hint: "Poor sleep mimics almost every other state on this tree: irritability, overwhelm, emotional reactivity. Worth ruling out before diagnosing anything else.",
+    options: [
+      { text: "She slept reasonably well", emoji: "✅", cls: "btn-y", next: "check_cause" },
+      { text: "Broken, restless, too hot, or not enough", emoji: "😴", cls: "btn-n", next: "sleep_tired" },
+      { text: "Not sure", emoji: "🤷", cls: "btn-m", next: "check_cause" }
+    ]
+  },
+
+  check_cause: {
+    label: "Step 3 — Reading the Room",
+    question: "Did something seem to trigger this, or did it just descend?",
+    hint: "Sometimes bad feelings have a cause. Sometimes, especially with perimenopause, they arrive without warning as a physiological event. Both are valid. The approach is different.",
+    options: [
+      { text: "Something happened — she seems reactive or upset about something", emoji: "⚡", cls: "btn-y", next: "check_mood" },
+      { text: "Nothing obvious — it just arrived, she seems flat or heavy", emoji: "🌫️", cls: "btn-n", next: "hormonal" },
+      { text: "A bit of both", emoji: "🤔", cls: "btn-m", next: "check_mood" }
+    ]
+  },
+
+  check_mood: {
+    label: "Diagnosis — Reading Monkey",
+    question: "How would you describe how she seems right now?",
+    hint: "Go with your gut.",
+    options: [
+      { text: "Withdrawn, shut down, or very quiet", emoji: "🌧️", cls: "btn-y", next: "quiet_check" },
+      { text: "Snappy, irritable, or restless", emoji: "🌪️", cls: "btn-m", next: "irritable_check" },
+      { text: "Like she feels unimportant or ignored", emoji: "💔", cls: "btn-n", next: "rsd" }
+    ]
+  },
+
+  quiet_check: {
+    label: "Narrowing It Down",
+    question: "Has today been a lot? Big demands, many tasks, sensory noise, social effort?",
+    hint: "Monkey fills an invisible stress bucket without realising. When it overflows, she shuts down — not to punish you, but because she has nothing left.",
+    options: [
+      { text: "Yes — it's been a full-on day", emoji: "😮‍💨", cls: "btn-y", next: "overwhelmed" },
+      { text: "No — it's been calm, she just seems depleted", emoji: "🪫", cls: "btn-n", next: "sleep_tired" }
+    ]
+  },
+
+  irritable_check: {
+    label: "Narrowing It Down",
+    question: "What does the last few days look like in terms of variety and stimulation?",
+    hint: "Monkey's brain needs novelty to produce dopamine. Too samey = restless. Too chaotic = untethered. Both show up as irritability.",
+    options: [
+      { text: "Too samey — lots of routine, nothing surprising", emoji: "🔁", cls: "btn-y", next: "bored_routine" },
+      { text: "Too chaotic — no anchor or structure", emoji: "🌀", cls: "btn-m", next: "bored_chaos" },
+      { text: "Life has been very sensible for a while — no whimsy", emoji: "✨", cls: "btn-n", next: "bored_whimsy" }
+    ]
+  },
+
+  // RESULTS
+  feed: {
+    type: "result",
+    diagnosis: "🍌 Hungry Monkey",
+    diagnosisNote: "Hunger is the root of most Monkey problems. ADHD brains run hard and burn through glucose fast. Low blood sugar is chemically indistinguishable from emotional dysregulation. Feed her first, then reassess in 20 minutes before trying anything else.",
+    treatments: ["feed"]
+  },
+
+  sleep_tired: {
+    type: "result",
+    diagnosis: "😴 Sleep-Depleted Monkey",
+    diagnosisNote: "Poor sleep removes the brain's emotional shock absorbers. During perimenopause, broken sleep is common — night sweats, restlessness, hormonal surges at 3am. Everything feels harder and more hopeless than it actually is right now. This is neurological, not dramatic. She needs rest, not solutions.",
+    treatments: ["sleep_rest", "quiet", "feed"]
+  },
+
+  hormonal: {
+    type: "result",
+    diagnosis: "🌫️ Hormonal Weather Monkey",
+    diagnosisNote: "During perimenopause, oestrogen fluctuations affect dopamine and mood directly — sometimes dramatically, without warning. This didn't come from something that happened today. It is a physiological event, like weather. It will pass. Your job is not to understand it or fix it. Your job is warmth and low stimulation until it lifts.",
+    treatments: ["hormonal_comfort", "quiet", "feed"]
+  },
+
+  overwhelmed: {
+    type: "result",
+    diagnosis: "🌊 Overwhelmed Monkey",
+    diagnosisNote: "The bucket is full. The ADHD brain has fewer filters for sensory and emotional input, and perimenopause lowers the threshold further. She is not being dramatic — she has genuinely run out of capacity. She doesn't need solutions. She needs the pressure to stop.",
+    treatments: ["quiet", "outside", "feed"]
+  },
+
+  rsd: {
+    type: "result",
+    diagnosis: "💔 Feeling Rejected or Unseen (RSD)",
+    diagnosisNote: "This is Rejection Sensitive Dysphoria — a neurological feature of ADHD where perceived rejection causes genuine pain, not just hurt feelings. The trigger may have been something entirely neutral you did. She is not being manipulative. Do NOT ask 'what did I do?' right now — interrogation makes it worse. Do NOT try to logic her out of it. Specific, genuine affirmation is the primary tool here.",
+    treatments: ["attention", "quiet"]
+  },
+
+  bored_routine: {
+    type: "result",
+    diagnosis: "🔁 Routine-Bored Monkey",
+    diagnosisNote: "Too much predictability starves the ADHD brain of dopamine. This is not ingratitude — it is neurochemistry. She needs something novel, sensory, or creative to reset. Movement is also effective here because it generates dopamine directly.",
+    treatments: ["craft", "outside"]
+  },
+
+  bored_chaos: {
+    type: "result",
+    diagnosis: "🌀 Unanchored Monkey",
+    diagnosisNote: "Paradoxically, the ADHD brain also needs structure to function well. Too much chaos with no routine creates a low-level background panic that reads as irritability or restlessness. She needs a small anchor point and a creative outlet.",
+    treatments: ["quiet", "craft"]
+  },
+
+  bored_whimsy: {
+    type: "result",
+    diagnosis: "✨ Whimsy-Depleted Monkey",
+    diagnosisNote: "Life has been too sensible for too long. Play and novelty are not luxuries for the ADHD brain — they are the mechanism by which it generates dopamine and regulates mood. A small, surprising, joyful thing is not frivolous right now. It is the treatment.",
+    treatments: ["craft", "outside", "attention"]
+  }
+};
+
+const treatments = {
+  feed: {
+    cls: "t-feed", emoji: "🍌", title: "Feed the Monkey",
+    subtitle: "Priority: Do this first",
+    why: "Low blood sugar in an ADHD brain is chemically indistinguishable from emotional dysregulation. This is not a metaphor. Reassess everything else in 20 minutes.",
+    steps: [
+      "Offer food without making it about the mood. Just: 'Want something to eat?'",
+      "Something warm and substantial — not just a biscuit",
+      "Sit near her while she eats if you can. Don't disappear",
+      "Do not say 'you're just hungry.' Just feed her quietly",
+      "Wait 20 minutes and reassess before trying anything else"
+    ]
+  },
+  quiet: {
+    cls: "t-quiet", emoji: "🌿", title: "Quiet Together Time",
+    subtitle: "Presence without pressure",
+    why: null,
+    steps: [
+      "Sit near her — not across the room, not in another room. Physical proximity matters",
+      "No fixing, no advice, no jokes, no questions about what's wrong",
+      "Companionable silence is a valid and powerful thing to offer",
+      "A quiet 'I'm here' is enough. Let her lead on anything beyond that",
+      "If she wants distraction, watch something low-stakes together"
+    ]
+  },
+  outside: {
+    cls: "t-outside", emoji: "🌳", title: "Take Monkey Outside",
+    subtitle: "Movement = dopamine medicine",
+    why: "Physical movement and natural environments directly stimulate dopamine production. This is not just 'getting some air' — it is the most accessible neurochemical reset available without a prescription.",
+    steps: [
+      "Even 10 minutes counts. Don't wait for the right weather or right mood",
+      "Trees, water, or green space is better than pavement if possible",
+      "Don't make it about exercise unless she wants that",
+      "Let her set the pace and direction",
+      "You don't need to talk much. Just walk alongside her"
+    ]
+  },
+  craft: {
+    cls: "t-craft", emoji: "🎨", title: "Creative / Craft Time",
+    subtitle: "Hands busy, brain quiets",
+    why: "Making something activates a different brain circuit and provides low-pressure dopamine hits through small moments of progress. The output is irrelevant. The process is the medicine.",
+    steps: [
+      "Suggest it lightly: 'Do you want to make something?'",
+      "Don't require it to be useful, finished, or impressive",
+      "Sit with her and do your own thing alongside — don't watch her",
+      "Knitting, drawing, assembling, collaging — anything tactile works",
+      "If she says no, offer again in 20 minutes. Sometimes it takes two offers"
+    ]
+  },
+  attention: {
+    cls: "t-attention", emoji: "⭐", title: "Focused, Specific Attention",
+    subtitle: "She needs to feel she matters",
+    why: "When RSD is active, generic reassurance ('I love you') is less effective than specific, observed detail — the ADHD brain doesn't fully believe vague statements when dysphoria is running. Specificity is what breaks through.",
+    steps: [
+      "Put your phone down. Fully. Visibly.",
+      "Say something specific you have noticed or appreciate about her recently — not a category ('you're great') but a concrete detail",
+      "Do not follow it with a 'but'",
+      "Do not ask what's wrong immediately after. Just let the affirmation land",
+      "If she deflects or dismisses it, say it again. Mean it"
+    ]
+  },
+  sleep_rest: {
+    cls: "t-sleep", emoji: "🌙", title: "Rest Protocol",
+    subtitle: "Sleep debt is neurological debt",
+    why: "Perimenopause disrupts sleep through night sweats, anxiety, and hormonal surges. ADHD brains are especially vulnerable to the emotional effects of sleep loss. Rest is a legitimate medical instruction right now, not laziness.",
+    steps: [
+      "Reduce stimulation: dim lights, quieter environment if you can",
+      "Offer to handle anything that can wait until tomorrow",
+      "Don't suggest she 'try to nap' — just reduce demands and let her body decide",
+      "Warm drink, blanket, low-key comfort is appropriate here",
+      "Check in gently in an hour rather than disappearing entirely"
+    ]
+  },
+  hormonal_comfort: {
+    cls: "t-hormonal", emoji: "🌸", title: "Hormonal Weather Protocol",
+    subtitle: "This is not about today specifically",
+    why: "Perimenopause causes unpredictable drops in oestrogen that directly affect dopamine and serotonin. Sometimes a bad feeling is a physiological event, not a response to anything external. It will lift. Your job is warmth, not understanding.",
+    steps: [
+      "Do not try to find a reason or a trigger — there may not be one",
+      "Do not try to solve it, reframe it, or cheer it up",
+      "Offer warmth physically: a blanket, a warm drink, sitting close",
+      "Say: 'I don't need to understand it. I'm just here.'",
+      "Reduce any background demands or friction for the next few hours",
+      "Check back in gently. This is weather, not a verdict"
+    ]
+  }
+};
+
+let history = [];
+
+function renderProgress() {
+  const bar = document.getElementById("progressBar");
+  const total = 5;
+  bar.innerHTML = "";
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement("div");
+    dot.className = "progress-dot";
+    if (i < history.length) dot.classList.add("done");
+    else if (i === history.length) dot.classList.add("active");
+    bar.appendChild(dot);
+  }
+}
+
+function render(nodeKey) {
+  const tree = document.getElementById("tree");
+  const node = nodes[nodeKey];
+  renderProgress();
+  tree.innerHTML = "";
+
+  if (node.type === "result") {
+    const banner = document.createElement("div");
+    banner.className = "diagnosis-banner";
+    banner.innerHTML = `<div class="di">🔍</div><div><h3>Diagnosis: ${node.diagnosis}</h3><p>${node.diagnosisNote}</p></div>`;
+    tree.appendChild(banner);
+
+    const lbl = document.createElement("p");
+    lbl.className = "treat-label";
+    lbl.textContent = "Recommended treatments — try in this order";
+    tree.appendChild(lbl);
+
+    node.treatments.forEach(tk => {
+      const t = treatments[tk];
+      const card = document.createElement("div");
+      card.className = `treatment-card ${t.cls}`;
+      const why = t.why ? `<p class="why-label">Why this works</p><div class="why-note">${t.why}</div>` : "";
+      card.innerHTML = `
+        <div class="th">
+          <div class="te">${t.emoji}</div>
+          <div><div class="ts">${t.subtitle}</div><div class="tt">${t.title}</div></div>
+        </div>
+        <div class="tb">${why}<ul>${t.steps.map(s => `<li>${s}</li>`).join("")}</ul></div>
+      `;
+      tree.appendChild(card);
+    });
+
+    const rb = document.createElement("button");
+    rb.className = "restart-btn";
+    rb.textContent = "🔄  Start Again";
+    rb.onclick = () => { history = []; render("start"); window.scrollTo({top:0,behavior:"smooth"}); };
+    tree.appendChild(rb);
+
+  } else {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-label">${node.label}</div>
+      <h2>${node.question}</h2>
+      ${node.hint ? `<p class="hint">${node.hint}</p>` : ""}
+      <div class="btn-group">
+        ${node.options.map(opt => `
+          <button class="btn ${opt.cls}" data-next="${opt.next}">
+            <span class="be">${opt.emoji}</span><span>${opt.text}</span>
+          </button>
+        `).join("")}
+      </div>
+    `;
+    tree.appendChild(card);
+
+    if (history.length > 0) {
+      const back = document.createElement("button");
+      back.className = "back-btn";
+      back.textContent = "← Go back";
+      back.onclick = () => { const p = history.pop(); render(p); window.scrollTo({top:0,behavior:"smooth"}); };
+      tree.appendChild(back);
+    }
+
+    tree.querySelectorAll(".btn[data-next]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        history.push(nodeKey);
+        render(btn.dataset.next);
+        window.scrollTo({top:0,behavior:"smooth"});
+      });
+    });
+  }
+}
+
+render("start");
+</script>
+</body>
+</html>
