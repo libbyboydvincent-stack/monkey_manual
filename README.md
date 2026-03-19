@@ -44,9 +44,9 @@ The guide checks in this order:
 4. **Mood type** — Withdrawn, irritable/restless, or feeling rejected/unseen.
 5. **Specifics** — Within each mood type, follow-up questions narrow the likely cause.
 
-### Diagnoses
+### Assessment
 
-| Diagnosis | What it means |
+| Assessment | What it means |
 |---|---|
 | 🍌 Hungry Monkey | Low blood sugar presenting as emotional dysregulation |
 | 😴 Sleep-Depleted Monkey | Sleep debt removing emotional shock absorbers |
@@ -61,7 +61,9 @@ The guide checks in this order:
 
 Each diagnosis maps to ordered treatment recommendations, each with a **"Why this works"** note explaining the neurological mechanism:
 
-|🍌 Feed — glucose restoration|
+| Treatment | What it means |
+|---|---|
+|🍌 Feed | glucose restoration |
 🌿 Quiet Together Time — presence without pressure
 🌳 Take Outside — movement as direct dopamine medicine
 🎨 Creative / Craft Time — dopamine via making
