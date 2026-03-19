@@ -511,7 +511,7 @@ body::after {
   overflow: hidden;
 }
 .comp-img-wrap { position: relative; width: 100%; height: 0px; padding-bottom: 100%; overflow: hidden; border-bottom: 1px solid var(--gold-dim); }
-.comp-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.comp-img-wrap img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .comp-img-wrap::after {
   content: '';
   position: absolute; inset: 0;
