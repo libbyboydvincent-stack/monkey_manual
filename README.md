@@ -61,7 +61,7 @@ The guide checks in this order:
 
 Each diagnosis maps to ordered treatment recommendations, each with a **"Why this works"** note explaining the neurological mechanism:
 
-🍌 Feed — glucose restoration
+|🍌 Feed — glucose restoration|
 🌿 Quiet Together Time — presence without pressure
 🌳 Take Outside — movement as direct dopamine medicine
 🎨 Creative / Craft Time — dopamine via making
