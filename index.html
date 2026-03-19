@@ -531,9 +531,6 @@ body::after {
 .comp-steps li { padding-left: 16px; position: relative; font-size: 0.85rem; color: var(--silver-mid); line-height: 1.5; }
 .comp-steps li::before { content: '⬥'; position: absolute; left: 0; color: var(--gold-dim); font-size: 0.5rem; top: 5px; }
 
-/* no-image comp card */
-.comp-no-img { display: flex; align-items: center; justify-content: center; height: 80px; background: var(--bg-raised); border-bottom: 1px solid var(--gold-dim); }
-.comp-no-img-icon { font-size: 2.5rem; opacity: 0.4; }
 </style>
 </head>
 <body>
@@ -785,7 +782,7 @@ const treatments = {
     steps: ["Set aside your device. Fully. Visibly.","Speak something specific you have observed or valued recently — not a category but a precise detail","Do not follow it with 'but'","Do not immediately ask what is wrong. Allow the affirmation to settle","If she deflects or dismisses it, repeat it. Mean it."]
   },
   sleep_rest: {
-    emoji: "🌙", title: "Rest Protocol", subtitle: "Elixir — Sleep Debt is Neurological Debt",
+    title: "Rest Protocol", subtitle: "Elixir — Sleep Debt is Neurological Debt",
     img: null,
     why: "Perimenopause disrupts sleep through night sweats, anxiety, and hormonal surges. ADHD brains are especially vulnerable to the emotional effects of sleep deprivation. Rest is a medical instruction, not indulgence.",
     steps: ["Reduce stimulation: dim lights, quieter environment where possible","Offer to handle anything that may wait until tomorrow","Do not suggest she 'try to nap' — reduce demands and let her body decide","Warm drink, blanket, low-key comfort is appropriate","Check in gently after an hour rather than vanishing entirely"]
@@ -1019,13 +1016,12 @@ function buildCompendium() {
     card.className = 'comp-card';
     const imgHtml = t.img
       ? `<div class="comp-img-wrap"><img src="${t.img}" alt="${t.title}" loading="lazy"></div>`
-      : `<div class="comp-img-wrap comp-no-img"><span class="comp-no-img-icon">${t.emoji}</span></div>`;
+      : ``;
     const whyHtml = t.why ? `<div class="comp-why">${t.why}</div>` : '';
     card.innerHTML = `
       ${imgHtml}
       <div class="comp-body">
         <div class="comp-head">
-          <span class="comp-icon">${t.emoji}</span>
           <div><div class="comp-sub">${t.subtitle}</div><div class="comp-title">${t.title}</div></div>
         </div>
         ${whyHtml}
