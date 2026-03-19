@@ -860,7 +860,7 @@ function buildRemedy(t) {
   card.innerHTML = `
     ${imgHtml}
     <div class="remedy-head">
-      <div class="remedy-icon">${t.emoji}</div>
+      <div class="remedy-icon"></div>
       <div><div class="remedy-sub">${t.subtitle}</div><div class="remedy-title">${t.title}</div></div>
     </div>
     <div class="remedy-body">${why}<ul class="remedy-steps">${t.steps.map(s=>`<li>${s}</li>`).join('')}</ul></div>
@@ -981,7 +981,7 @@ function render(nodeKey) {
       ${node.hint ? `<div class="entry-hint">${node.hint}</div>` : ''}
       <div class="options">${node.options.map(opt=>`
         <button class="opt" data-next="${opt.next}">
-          <span class="oe">${opt.emoji}</span><span>${opt.text}</span>
+          <span>${opt.text}</span>
         </button>`).join('')}
       </div>
     `;
